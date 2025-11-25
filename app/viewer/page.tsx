@@ -80,7 +80,11 @@ export default function ViewerPage() {
     <div className="relative h-screen w-screen overflow-hidden bg-gray-100">
       {/* Toggle Button */}
       <button 
-        className={`absolute top-4 left-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-800 shadow-md transition-all hover:scale-110 ${isSidebarOpen ? 'left-[310px] text-white bg-transparent shadow-none' : ''}`}
+        className={`absolute top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full shadow-md transition-all hover:scale-110 ${
+          isSidebarOpen 
+            ? 'left-[250px] text-white bg-transparent shadow-none hover:bg-white/10' 
+            : 'left-4 bg-white text-gray-800'
+        }`}
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         aria-label="Toggle Menu"
       >
