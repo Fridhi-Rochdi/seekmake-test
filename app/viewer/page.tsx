@@ -80,15 +80,23 @@ export default function ViewerPage() {
     <div className="relative h-screen w-screen overflow-hidden bg-gray-100">
       {/* Toggle Button */}
       <button 
-        className={`absolute top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full shadow-md transition-all hover:scale-110 ${
+        className={`absolute top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 ${
           isSidebarOpen 
-            ? 'left-[250px] text-white bg-transparent shadow-none hover:bg-white/10' 
-            : 'left-4 bg-white text-gray-800'
+            ? 'left-[240px] text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10' 
+            : 'left-4 bg-white text-slate-900 hover:bg-gray-50'
         }`}
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        aria-label="Toggle Menu"
+        aria-label={isSidebarOpen ? "Close Menu" : "Open Menu"}
       >
-        {isSidebarOpen ? '×' : '☰'}
+        {isSidebarOpen ? (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        )}
       </button>
 
       {/* Sidebar */}
